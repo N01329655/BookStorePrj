@@ -120,3 +120,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# after users logged in they will be redirected to home page
+LOGIN_REDIRECT_URL = 'home'
+
+# after users logged out they will be redirected to home page
+LOGOUT_REDIRECT_URL = 'home'
