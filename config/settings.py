@@ -35,11 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # enabling use of Site_id = 1
+    # third-party packages
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+
     # local apps
     'accounts',
     'pages',
-    # third-party packages
-    'crispy_forms'
 ]
 # Pre-styled forms provided by bootstrap4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -142,4 +146,35 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 
 # after users logged out they will be redirected to home page
-LOGOUT_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
+
+
+# DJANGO_ALLAUTH settings
+
+
+# for django-allauth
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+
+# django-allauth config (in case we want to server more than one website with this app)
+SITE_ID = 1
+
+# to use email to log in instead of username
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+# temporary measure to display mails upon successful registration in console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# setting up remember me button
+# ACCOUNT_SESSION_REMEMBER = True  ## I prefer to have this button
+
+# during sign up process does not require enter password second time
+# ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False ## I prefer not to turn on this feature
+
+# Configuring to use emails for registration and log in instead of username
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+

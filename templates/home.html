@@ -9,13 +9,13 @@
     <br/>
     {% if user.is_authenticated %}
         Hi,{{ user.email }}!
-        <p> <a class="btn btn-warning" href="{% url 'logout' %}"> Log Out. </a></p>
+        <p> <a class="btn btn-warning" href="{% url 'account_logout' %}"> Log Out. </a></p>
     {% else %}
         <p> You are not logged in!</p>
          <a class="btn btn-outline-primary"
-            href="{% url 'login' %}">Log In</a>
+            href="{% url 'account_login' %}">Log In</a>
          <a class="btn btn-success"
-            href="{% url 'signup' %}">Sign Up</a>
+            href="{% url 'account_signup' %}">Sign Up</a>
     {% endif %}
 
 {% endblock content %}
