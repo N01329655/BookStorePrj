@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # local apps
     'accounts',
+    'pages',
+    # third-party packages
+    'crispy_forms'
 ]
+# Pre-styled forms provided by bootstrap4
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,6 +123,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# location of static files in local development
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+
+# location of static files for production
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+
+# how to look for static files; first look at the project-level (static) and then at the app-level
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
 

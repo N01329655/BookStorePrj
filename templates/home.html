@@ -1,15 +1,21 @@
 {% extends '_base.html' %}
+<!-- loading static files -->
+{% load static %}
 {% block title %} Home {% endblock title %}
 {% block content %}
     <h1> Homepage</h1>
+    <!-- displaying picture -->
+    <img class="w3-round" src="{% static 'images/pic1.png' %}" alt="home page picture">
+    <br/>
     {% if user.is_authenticated %}
         Hi,{{ user.email }}!
-        <p> <a href="{% url 'logout' %}"> Log Out. </a></p>
+        <p> <a class="btn btn-warning" href="{% url 'logout' %}"> Log Out. </a></p>
     {% else %}
         <p> You are not logged in!</p>
-        <a href="{% url 'login' %}"> Click to log in.</a>
-        <br/>
-        <a href="{% url 'signup' %}">Sign Up</a>
+         <a class="btn btn-outline-primary"
+            href="{% url 'login' %}">Log In</a>
+         <a class="btn btn-success"
+            href="{% url 'signup' %}">Sign Up</a>
     {% endif %}
 
 {% endblock content %}
