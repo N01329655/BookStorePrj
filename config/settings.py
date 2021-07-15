@@ -169,9 +169,6 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
-# temporary measure to display mails upon successful registration in console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 # setting up remember me button
 # ACCOUNT_SESSION_REMEMBER = True  ## I prefer to have this button
 
@@ -184,3 +181,13 @@ ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
+
+# temporary measure to display mails upon successful registration in console
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# email configuration
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'gora2000@ukr.net'
