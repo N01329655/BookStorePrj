@@ -187,7 +187,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # email configuration
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = 'was removed!'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'gora2000@ukr.net'
+DEFAULT_FROM_EMAIL = 'youremail@example.com'
